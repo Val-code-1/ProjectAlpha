@@ -43,9 +43,10 @@ searchButton.addEventListener("click", () => {
         resultImg.addEventListener("click", () => {
           console.log(`ID: ${json.results[i].id}`);
 
-          let url = `https://api.watchmode.com/v1/title/${resultImg.id}/details/?apiKey=${key}`;
+          let infoAPI = `https://api.watchmode.com/v1/title/${resultImg.id}/details/?apiKey=${key}`;
+          let streamAPI = `https://api.watchmode.com/v1/title/${resultImg.id}/sources/?apiKey=${key}`;
 
-          fetch(url, { method: "Get" })
+          fetch(infoAPI, { method: "Get" })
             .then((res) => res.json())
             .then((json) => {
               console.log(json);
@@ -80,6 +81,23 @@ searchButton.addEventListener("click", () => {
               rating.className = "rating";
               rating.innerHTML = `${json.us_rating}`;
               results.appendChild(rating);
+              fetch(streamAPI, { method: "Get" })
+                .then((res) => res.json())
+                .then((streams) => {
+                  console.log(streams);
+
+                  for (let i = 0; i < streams.length; i++) {
+                    let streamSource = document.createElement("div");
+                    streamSource.className = "streamSource";
+                    streamSource.innerHTML = `${streams[i].name}`;
+                    results.appendChild(streamSource);
+
+                    let streamType = document.createElement("div");
+                    streamType.className = "streamType";
+                    streamType.innerHTML = `${streams[i].type}`;
+                    results.appendChild(streamType);
+                  }
+                });
             });
         });
 
