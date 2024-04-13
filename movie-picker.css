@@ -1,0 +1,113 @@
+body {
+  background-color: #2d2d2d;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+#streaming-services-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid grey;
+  width: 60%;
+  margin: auto;
+}
+
+#streaming-services-box img {
+  width: 40px;
+  height: 40px;
+  margin: 15px;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+#streaming-services-box img.selected {
+  opacity: 1;
+}
+
+#major-streaming-services {
+  display: flex;
+  justify-content: center;
+}
+
+#more-streaming-services {
+  display: flex;
+  justify-content: center;
+}
+
+#tv-and-rental-services {
+  display: flex;
+  justify-content: center;
+}
+
+#tv-and-rental-services img {
+  width: 35px;
+  height: 35px;
+  margin: 10px;
+}
+
+#genres-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid grey;
+  width: 60%;
+  margin: auto;
+}
+
+#genres-box img {
+  width: 40px;
+  height: 40px;
+  margin: 15px;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+#genres-box img.selected {
+  opacity: 1;
+}
+
+.genre-row {
+  display: flex;
+  justify-content: center;
+}
+
+#media-type-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid grey;
+  width: 60%;
+  margin: auto;
+}
+
+#media-type-box img {
+  width: 40px;
+  height: 40px;
+  margin: 15px;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+#media-type-box img.selected {
+  opacity: 1;
+}
+
+#find-movie-button-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid grey;
+  width: 60%;
+  margin: auto;
+}
+
+#find-movie-button-box img {
+  width: 400px;
+  margin: 15px;
+}
+
+#find-movie-button {
+  margin: auto;
+}
