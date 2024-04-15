@@ -17,6 +17,57 @@ searchButton.addEventListener("click", () => {
   // This API is user friendly to help with misspelled and incomplete words
   let url = `https://api.watchmode.com/v1/autocomplete-search/?apiKey=${key}&search_value=${searchEntry}&search_type=2`;
 
+  // Switch case to change names to images and add that image location to element src
+  function streamNamesToIcons(name, element) {
+    switch (name) {
+      case "Amazon":
+        element.src = "./src/streaming-services/amazon-video.png";
+        break;
+      case "Netflix":
+        element.src = "./src/streaming-services/netflix.png";
+        break;
+      case "AppleTV":
+        element.src = "./src/streaming-services/apple.png";
+        break;
+      case "VUDU":
+        element.src = "./src/streaming-services/vudu.png";
+        break;
+      case "Disney+":
+        element.src = "./src/streaming-services/disney-plus.png";
+        break;
+      case "Google Play":
+        element.src = "./src/streaming-services/google-play.png";
+        break;
+      case "MAX":
+        element.src = "./src/streaming-services/hbo-max.png";
+        break;
+      case "Hulu":
+        element.src = "./src/streaming-services/hulu.png";
+        break;
+      case "Peacock":
+        element.src = "./src/streaming-services/peacock.png";
+        break;
+      case "YouTube":
+        element.src = "./src/streaming-services/youtube-tv.png";
+        break;
+      case "fuboTV":
+        element.src = "./src/streaming-services/fubo-tv.png";
+        break;
+      case "Paramount Plus":
+        element.src = "./src/streaming-services/paramount-plus.png";
+        break;
+      case "Amazon Freevee":
+        element.src = "./src/streaming-services/amazon-freevee.png";
+        break;
+      case "Prime Video":
+        element.src = "./src/streaming-services/prime-video.png";
+        break;
+      default:
+        element.src = "./src/streaming-services/sling-tv.png";
+        return;
+    }
+  }
+
   fetch(url, { method: "Get" })
     .then((res) => res.json())
     .then((json) => {
@@ -86,16 +137,28 @@ searchButton.addEventListener("click", () => {
                 .then((streams) => {
                   console.log(streams);
 
+                  // No duplicates returned
+                  let unique = [];
+
                   for (let i = 0; i < streams.length; i++) {
-                    let streamSource = document.createElement("div");
+                    if (!unique.includes(streams[i].name)) {
+                      unique.push(streams[i].name);
+                    }
+                    console.log(unique);
+                  }
+
+                  for (let i = 0; i < unique.length; i++) {
+                    let streamSource = document.createElement("img");
                     streamSource.className = "streamSource";
-                    streamSource.innerHTML = `${streams[i].name}`;
+                    streamSource.title = `${unique[i]}`;
+                    // streamSource.innerHTML = `${unique[i]}`;
+                    streamNamesToIcons(unique[i], streamSource);
                     results.appendChild(streamSource);
 
-                    let streamType = document.createElement("div");
-                    streamType.className = "streamType";
-                    streamType.innerHTML = `${streams[i].type}`;
-                    results.appendChild(streamType);
+                    // let streamType = document.createElement("div");
+                    // streamType.className = "streamType";
+                    // streamType.innerHTML = `${unique[i].type}`;
+                    // results.appendChild(streamType);
                   }
                 });
             });
