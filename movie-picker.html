@@ -7,447 +7,835 @@
     <link rel="stylesheet" href="./movie-picker.css" />
   </head>
   <body>
-    <div id="streaming-services-box">
-      <h4>Streaming Services</h4>
-      <div id="major-streaming-services">
-        <img
-          src="./src/streaming-services/netflix.png"
-          class="service-icon"
-          id="netflix-icon"
-          alt="Netflix Icon"
-          title="Stream on Netflix"
-          data-selected="false"
-          data-api-id="203"
-        />
-        <img
-          src="./src/streaming-services/hulu.png"
-          class="service-icon"
-          id="hulu-icon"
-          alt="Hulu Icon"
-          title="Stream on Hulu"
-          data-selected="false"
-          data-api-id="157"
-        />
-        <img
-          src="./src/streaming-services/disney-plus.png"
-          class="service-icon"
-          id="disney-plus-icon"
-          alt="Disney+ Icon"
-          title="Stream on Disney+"
-          data-selected="false"
-          data-api-id="372"
-        />
-        <img
-          src="./src/streaming-services/apple-tv-plus.png"
-          class="service-icon"
-          id="apple-tv-plus-icon"
-          alt="Apple TV+ Icon"
-          title="Stream on Apple TV+"
-          data-selected="false"
-          data-api-id="371"
-        />
-        <img
-          src="./src/streaming-services/hbo-max.png"
-          class="service-icon"
-          id="hbo-max-icon"
-          alt="HBO Max Icon"
-          title="Stream on HBO Max"
-          data-selected="false"
-          data-api-id="387"
-        />
-        <img
-          src="./src/streaming-services/prime-video.png"
-          class="service-icon"
-          id="prime-video-icon"
-          alt="Prime Video Icon"
-          title="Stream on Amazon Prime Video"
-          data-selected="false"
-          data-api-id="26"
-        />
+    <h1>Find Me Something to Watch</h1>
+    <div id="media-type-container">
+      <h2>What Would You Like to Watch?</h2>
+      <div id="media-type-icons">
+        <div class="media-type-row">
+          <div class="icon-container">
+            <img
+              src="./src/genres/movie.png"
+              class="media-type-icon"
+              id="movie-icon"
+              alt="Movie Icon"
+              title="Movie"
+              data-selected="false"
+              data-api-id="movie,tv_special,short_film"
+            />
+            <h4>Movie</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/tv-show.png"
+              class="media-type-icon"
+              id="tv-show-icon"
+              alt="TV Show Icon"
+              title="TV Show"
+              data-selected="false"
+              data-api-id="tv_series,tv_miniseries"
+            />
+            <h4>TV Show</h4>
+          </div>
+        </div>
       </div>
-      <div id="more-streaming-services">
-        <img
-          src="./src/streaming-services/peacock.png"
-          class="service-icon"
-          id="peacock-icon"
-          alt="Peacock Icon"
-          title="Stream on Peacock"
-          data-selected="false"
-          data-api-id="389"
-        />
-        <img
-          src="./src/streaming-services/paramount-plus.png"
-          class="service-icon"
-          id="paramount-plus-icon"
-          alt="Paramount+ Icon"
-          title="Stream on Paramount+"
-          data-selected="false"
-          data-api-id="444"
-        />
-        <img
-          src="./src/streaming-services/paramount-plus-with-showtime.png"
-          class="service-icon"
-          id="paramount-plus-with-showtime-icon"
-          alt="Paramount+ with Showtime Icon"
-          title="Stream on Paramount+ with Showtime"
-          data-selected="false"
-          data-api-id="455"
-        />
-        <img
-          src="./src/streaming-services/amc-plus.png"
-          class="service-icon"
-          id="amc-plus-icon"
-          alt="AMC+ Icon"
-          title="Stream on AMC+"
-          data-selected="false"
-          data-api-id="378"
-        />
-        <img
-          src="./src/streaming-services/starz.png"
-          class="service-icon"
-          id="starz-icon"
-          alt="Starz Icon"
-          title="Stream on Starz"
-          data-selected="false"
-          data-api-id="232"
-        />
-        <img
-          src="./src/streaming-services/mgm-plus.png"
-          class="service-icon"
-          id="mgm-plus-icon"
-          alt="MGM+ Icon"
-          title="Stream on MGM+"
-          data-selected="false"
-          data-api-id="108"
-        />
-      </div>
-      <div id="tv-and-rental-services">
-        <img
-          src="./src/streaming-services/fubo-tv.png"
-          class="service-icon"
-          id="fubo-tv-icon"
-          alt="Fubo TV Icon"
-          title="Stream on Fubu TV"
-          data-selected="false"
-          data-api-id="373"
-        />
-        <img
-          src="./src/streaming-services/youtube-tv.png"
-          class="service-icon"
-          id="youtube-tv-icon"
-          alt="YouTube TV Icon"
-          title="Stream on Youtube TV"
-          data-selected="false"
-          data-api-id="344"
-        />
-        <img
-          src="./src/streaming-services/amazon-freevee.png"
-          class="service-icon"
-          id="amazon-freevee-icon"
-          alt="Amazon Freevee Icon"
-          title="Stream on Amazon Freevee"
-          data-selected="false"
-          data-api-id="365"
-        />
-        <img
-          src="./src/streaming-services/roku-channel.png"
-          class="service-icon"
-          id="roku-icon"
-          alt="Roku Channel Icon"
-          title="Stream on Roku Channel"
-          data-selected="false"
-          data-api-id="452"
-        />
-        <img
-          src="./src/streaming-services/google-play.png"
-          class="service-icon"
-          id="google-play-icon"
-          alt="Google Play Icon"
-          title="Rent/Buy on Google Play Movies & TV"
-          data-selected="false"
-          data-api-id="140"
-        />
-        <img
-          src="./src/streaming-services/vudu.png"
-          class="service-icon"
-          id="vudu-icon"
-          alt="Vudu Icon"
-          title="Rent/Buy on Vudu"
-          data-selected="false"
-          data-api-id="307"
-        />
-        <img
-          src="./src/streaming-services/amazon-video.png"
-          class="service-icon"
-          id="amazon-video-icon"
-          alt="Amazon Video Icon"
-          title="Rent/Buy on Amazon Video"
-          data-selected="false"
-          data-api-id="24"
-        />
-        <img
-          src="./src/streaming-services/apple.png"
-          class="service-icon"
-          id="apple-icon"
-          alt="Apple Icon"
-          title="Rent/Buy on Apple"
-          data-selected="false"
-          data-api-id="349"
-        />
+      <div id="type-button-container">
+        <button id="type-next-button" disabled>
+          <img
+            id="type-next-button-image"
+            src="./src/buttons/next-button.png"
+          />
+        </button>
       </div>
     </div>
-    <div id="genres-box">
-      <h4>Genres</h4>
-      <div class="genre-row">
-        <img
-          src="./src/genres/action.png"
-          class="genre-icon"
-          id="action-icon"
-          alt="Action Icon"
-          title="Action"
-          data-selected="false"
-          data-api-id="1"
-        />
-        <img
-          src="./src/genres/adventure.png"
-          class="genre-icon"
-          id="adventure-icon"
-          alt="Adventure Icon"
-          title="Adventure"
-          data-selected="false"
-          data-api-id="2"
-        />
-        <img
-          src="./src/genres/animation.png"
-          class="genre-icon"
-          id="animation-icon"
-          alt="Animation Icon"
-          title="Animation"
-          data-selected="false"
-          data-api-id="3"
-        />
-        <img
-          src="./src/genres/comedy.png"
-          class="genre-icon"
-          id="comedy-icon"
-          alt="Comedy Icon"
-          title="Comedy"
-          data-selected="false"
-          data-api-id="4"
-        />
-        <img
-          src="./src/genres/crime.png"
-          class="genre-icon"
-          id="crime-icon"
-          alt="Crime Icon"
-          title="Crime"
-          data-selected="false"
-          data-api-id="5"
-        />
-        <img
-          src="./src/genres/documentary.png"
-          class="genre-icon"
-          id="documentary-icon"
-          alt="Documentary Icon"
-          title="Documentary"
-          data-selected="false"
-          data-api-id="6"
-        />
+    <div id="genre-preview">
+      <h2>Select Genre</h2>
+    </div>
+    <div id="genre-container">
+      <h2>Select Your Genres</h2>
+      <div id="genre-icons">
+        <div class="genre-row">
+          <div class="icon-container">
+            <img
+              src="./src/genres/action.png"
+              class="genre-icon"
+              id="action-icon"
+              alt="Action Icon"
+              title="Action"
+              data-selected="false"
+              data-api-id="1"
+            />
+            <h4>Action</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/adventure.png"
+              class="genre-icon"
+              id="adventure-icon"
+              alt="Adventure Icon"
+              title="Adventure"
+              data-selected="false"
+              data-api-id="2"
+            />
+            <h4>Adventure</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/animation.png"
+              class="genre-icon"
+              id="animation-icon"
+              alt="Animation Icon"
+              title="Animation"
+              data-selected="false"
+              data-api-id="3"
+            />
+            <h4>Animation</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/comedy.png"
+              class="genre-icon"
+              id="comedy-icon"
+              alt="Comedy Icon"
+              title="Comedy"
+              data-selected="false"
+              data-api-id="4"
+            />
+            <h4>Comedy</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/crime.png"
+              class="genre-icon"
+              id="crime-icon"
+              alt="Crime Icon"
+              title="Crime"
+              data-selected="false"
+              data-api-id="5"
+            />
+            <h4>Crime</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/documentary.png"
+              class="genre-icon"
+              id="documentary-icon"
+              alt="Documentary Icon"
+              title="Documentary"
+              data-selected="false"
+              data-api-id="6"
+            />
+            <h4>Documentary</h4>
+          </div>
+        </div>
+        <div class="genre-row">
+          <div class="icon-container">
+            <img
+              src="./src/genres/drama.png"
+              class="genre-icon"
+              id="drama-icon"
+              alt="Drama Icon"
+              title="Drama"
+              data-selected="false"
+              data-api-id="7"
+            />
+            <h4>Drama</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/family.png"
+              class="genre-icon"
+              id="family-icon"
+              alt="Family Icon"
+              title="Family"
+              data-selected="false"
+              data-api-id="8"
+            />
+            <h4>Family</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/fantasy.png"
+              class="genre-icon"
+              id="fantasy-icon"
+              alt="Fantasy Icon"
+              title="Fantasy"
+              data-selected="false"
+              data-api-id="9"
+            />
+            <h4>Fantasy</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/history.png"
+              class="genre-icon"
+              id="history-icon"
+              alt="History Icon"
+              title="History"
+              data-selected="false"
+              data-api-id="10"
+            />
+            <h4>History</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/horror.png"
+              class="genre-icon"
+              id="horror-icon"
+              alt="Horror Icon"
+              title="Horror"
+              data-selected="false"
+              data-api-id="11"
+            />
+            <h4>Horror</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/music.png"
+              class="genre-icon"
+              id="music-icon"
+              alt="Music Icon"
+              title="Music"
+              data-selected="false"
+              data-api-id="12"
+            />
+            <h4>Music</h4>
+          </div>
+        </div>
+        <div class="genre-row">
+          <div class="icon-container">
+            <img
+              src="./src/genres/mystery.png"
+              class="genre-icon"
+              id="mystery-icon"
+              alt="Mystery Icon"
+              title="Mystery"
+              data-selected="false"
+              data-api-id="13"
+            />
+            <h4>Mystery</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/romance.png"
+              class="genre-icon"
+              id="romance-icon"
+              alt="Romance Icon"
+              title="Romance"
+              data-selected="false"
+              data-api-id="14"
+            />
+            <h4>Romance</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/science-fiction.png"
+              class="genre-icon"
+              id="science-fiction-icon"
+              alt="Science Fiction Icon"
+              title="Science Fiction"
+              data-selected="false"
+              data-api-id="15"
+            />
+            <h4>Science Fiction</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/thriller.png"
+              class="genre-icon"
+              id="thriller-icon"
+              alt="Thriller Icon"
+              title="Thriller"
+              data-selected="false"
+              data-api-id="17"
+            />
+            <h4>Thriller</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/war.png"
+              class="genre-icon"
+              id="war-icon"
+              alt="War Icon"
+              title="War"
+              data-selected="false"
+              data-api-id="18"
+            />
+            <h4>War</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/western.png"
+              class="genre-icon"
+              id="western-icon"
+              alt="Western Icon"
+              title="Western"
+              data-selected="false"
+              data-api-id="19"
+            />
+            <h4>Western</h4>
+          </div>
+        </div>
+        <div class="genre-row">
+          <div class="icon-container">
+            <img
+              src="./src/genres/kids.png"
+              class="genre-icon"
+              id="kids-icon"
+              alt="Kids Icon"
+              title="Kids"
+              data-selected="false"
+              data-api-id="21"
+            />
+            <h4>Kids</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/reality.png"
+              class="genre-icon"
+              id="reality-icon"
+              alt="Reality Icon"
+              title="Reality"
+              data-selected="false"
+              data-api-id="23"
+            />
+            <h4>Reality</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/talk.png"
+              class="genre-icon"
+              id="talk-icon"
+              alt="Talk Icon"
+              title="Talk"
+              data-selected="false"
+              data-api-id="26"
+            />
+            <h4>Talk</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/game-show.png"
+              class="genre-icon"
+              id="game-show-icon"
+              alt="Game Show Icon"
+              title="Game Show"
+              data-selected="false"
+              data-api-id="27"
+            />
+            <h4>Game Show</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/supernatural.png"
+              class="genre-icon"
+              id="supernatural-icon"
+              alt="Supernatural Icon"
+              title="Supernatural"
+              data-selected="false"
+              data-api-id="37"
+            />
+            <h4>Supernatural</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/genres/all-genres.png"
+              class="genre-icon"
+              id="all-genres-icon"
+              alt="All Genres Icon"
+              title="All Genres"
+              data-selected="true"
+              data-api-id="all"
+            />
+            <h4>All Genres</h4>
+          </div>
+        </div>
       </div>
-      <div class="genre-row">
-        <img
-          src="./src/genres/drama.png"
-          class="genre-icon"
-          id="drama-icon"
-          alt="Drama Icon"
-          title="Drama"
-          data-selected="false"
-          data-api-id="7"
-        />
-        <img
-          src="./src/genres/family.png"
-          class="genre-icon"
-          id="family-icon"
-          alt="Family Icon"
-          title="Family"
-          data-selected="false"
-          data-api-id="8"
-        />
-        <img
-          src="./src/genres/fantasy.png"
-          class="genre-icon"
-          id="fantasy-icon"
-          alt="Fantasy Icon"
-          title="Fantasy"
-          data-selected="false"
-          data-api-id="9"
-        />
-        <img
-          src="./src/genres/history.png"
-          class="genre-icon"
-          id="history-icon"
-          alt="History Icon"
-          title="History"
-          data-selected="false"
-          data-api-id="10"
-        />
-        <img
-          src="./src/genres/horror.png"
-          class="genre-icon"
-          id="horror-icon"
-          alt="Horror Icon"
-          title="Horror"
-          data-selected="false"
-          data-api-id="11"
-        />
-        <img
-          src="./src/genres/music.png"
-          class="genre-icon"
-          id="music-icon"
-          alt="Music Icon"
-          title="Music"
-          data-selected="false"
-          data-api-id="12"
-        />
-      </div>
-      <div class="genre-row">
-        <img
-          src="./src/genres/mystery.png"
-          class="genre-icon"
-          id="mystery-icon"
-          alt="Mystery Icon"
-          title="Mystery"
-          data-selected="false"
-          data-api-id="13"
-        />
-        <img
-          src="./src/genres/romance.png"
-          class="genre-icon"
-          id="romance-icon"
-          alt="Romance Icon"
-          title="Romance"
-          data-selected="false"
-          data-api-id="14"
-        />
-        <img
-          src="./src/genres/science-fiction.png"
-          class="genre-icon"
-          id="science-fiction-icon"
-          alt="Science Fiction Icon"
-          title="Science Fiction"
-          data-selected="false"
-          data-api-id="15"
-        />
-        <img
-          src="./src/genres/thriller.png"
-          class="genre-icon"
-          id="thriller-icon"
-          alt="Thriller Icon"
-          title="Thriller"
-          data-selected="false"
-          data-api-id="17"
-        />
-        <img
-          src="./src/genres/war.png"
-          class="genre-icon"
-          id="war-icon"
-          alt="War Icon"
-          title="War"
-          data-selected="false"
-          data-api-id="18"
-        />
-        <img
-          src="./src/genres/western.png"
-          class="genre-icon"
-          id="western-icon"
-          alt="Western Icon"
-          title="Western"
-          data-selected="false"
-          data-api-id="19"
-        />
-      </div>
-      <div class="genre-row">
-        <img
-          src="./src/genres/kids.png"
-          class="genre-icon"
-          id="kids-icon"
-          alt="Kids Icon"
-          title="Kids"
-          data-selected="false"
-          data-api-id="21"
-        />
-        <img
-          src="./src/genres/reality.png"
-          class="genre-icon"
-          id="reality-icon"
-          alt="Reality Icon"
-          title="Reality"
-          data-selected="false"
-          data-api-id="23"
-        />
-        <img
-          src="./src/genres/talk.png"
-          class="genre-icon"
-          id="talk-icon"
-          alt="Talk Icon"
-          title="Talk"
-          data-selected="false"
-          data-api-id="26"
-        />
-        <img
-          src="./src/genres/game-show.png"
-          class="genre-icon"
-          id="game-show-icon"
-          alt="Game Show Icon"
-          title="Game Show"
-          data-selected="false"
-          data-api-id="27"
-        />
-        <img
-          src="./src/genres/supernatural.png"
-          class="genre-icon"
-          id="supernatural-icon"
-          alt="Supernatural Icon"
-          title="Supernatural"
-          data-selected="false"
-          data-api-id="37"
-        />
-        <img
-          src="./src/genres/all-genres.png"
-          class="genre-icon"
-          id="all-genres-icon"
-          alt="All Genres Icon"
-          title="All Genres"
-          data-selected="false"
-        />
+      <div id="genre-button-container">
+        <button id="genre-back-button">
+          <img
+            id="genre-back-button-image"
+            src="./src/buttons/back-button.png"
+          />
+        </button>
+        <button id="genre-next-button" disabled>
+          <img
+            id="genre-next-button-image"
+            src="./src/buttons/next-button.png"
+          />
+        </button>
       </div>
     </div>
-    <div id="media-type-box">
-      <h4>Media Type</h4>
-      <div id="media-type-row">
-        <img
-          src="./src/genres/movie.png"
-          class="media-type-icon"
-          id="movie-icon"
-          alt="Movie Icon"
-          title="Movie"
-          data-selected="false"
-          data-api-id="movie,tv_special,short_film"
-        />
-        <img
-          src="./src/genres/tv-show.png"
-          class="media-type-icon"
-          id="tv-show-icon"
-          alt="TV Show Icon"
-          title="TV Show"
-          data-selected="false"
-          data-api-id="tv_series,tv_miniseries"
-        />
+    <div id="source-preview">
+      <h2>Select Available Sources</h2>
+    </div>
+    <div id="source-container">
+      <h2>Select Your Streaming Sources</h2>
+      <div id="source-icons">
+        <div class="source-row">
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/netflix.png"
+              class="service-icon"
+              id="netflix-icon"
+              alt="Netflix Icon"
+              title="Stream on Netflix"
+              data-selected="false"
+              data-api-id="203"
+            />
+            <h4>Netflix</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/hulu.png"
+              class="service-icon"
+              id="hulu-icon"
+              alt="Hulu Icon"
+              title="Stream on Hulu"
+              data-selected="false"
+              data-api-id="157"
+            />
+            <h4>Hulu</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/disney-plus.png"
+              class="service-icon"
+              id="disney-plus-icon"
+              alt="Disney+ Icon"
+              title="Stream on Disney+"
+              data-selected="false"
+              data-api-id="372"
+            />
+            <h4>Disney+</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/apple-tv-plus.png"
+              class="service-icon"
+              id="apple-tv-plus-icon"
+              alt="Apple TV+ Icon"
+              title="Stream on Apple TV+"
+              data-selected="false"
+              data-api-id="371"
+            />
+            <h4>Apple TV+</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/hbo-max.png"
+              class="service-icon"
+              id="hbo-max-icon"
+              alt="HBO Max Icon"
+              title="Stream on HBO Max"
+              data-selected="false"
+              data-api-id="387"
+            />
+            <h4>HBO Max</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/prime-video.png"
+              class="service-icon"
+              id="prime-video-icon"
+              alt="Prime Video Icon"
+              title="Stream on Amazon Prime Video"
+              data-selected="false"
+              data-api-id="26"
+            />
+            <h4>Amazon Prime Video</h4>
+          </div>
+        </div>
+        <div class="source-row">
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/peacock.png"
+              class="service-icon"
+              id="peacock-icon"
+              alt="Peacock Icon"
+              title="Stream on Peacock"
+              data-selected="false"
+              data-api-id="389"
+            />
+            <h4>Peacock</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/paramount-plus.png"
+              class="service-icon"
+              id="paramount-plus-icon"
+              alt="Paramount+ Icon"
+              title="Stream on Paramount+"
+              data-selected="false"
+              data-api-id="444"
+            />
+            <h4>Paramount+</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/paramount-plus-with-showtime.png"
+              class="service-icon"
+              id="paramount-plus-with-showtime-icon"
+              alt="Paramount+ with Showtime Icon"
+              title="Stream on Paramount+ with Showtime"
+              data-selected="false"
+              data-api-id="455"
+            />
+            <h4>Paramount+ with Showtime</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/amc-plus.png"
+              class="service-icon"
+              id="amc-plus-icon"
+              alt="AMC+ Icon"
+              title="Stream on AMC+"
+              data-selected="false"
+              data-api-id="378"
+            />
+            <h4>AMC+</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/starz.png"
+              class="service-icon"
+              id="starz-icon"
+              alt="Starz Icon"
+              title="Stream on Starz"
+              data-selected="false"
+              data-api-id="232"
+            />
+            <h4>Starz</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/mgm-plus.png"
+              class="service-icon"
+              id="mgm-plus-icon"
+              alt="MGM+ Icon"
+              title="Stream on MGM+"
+              data-selected="false"
+              data-api-id="108"
+            />
+            <h4>MGM+</h4>
+          </div>
+        </div>
+        <div class="source-row">
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/fubo-tv.png"
+              class="service-icon"
+              id="fubo-tv-icon"
+              alt="Fubo TV Icon"
+              title="Stream on Fubu TV"
+              data-selected="false"
+              data-api-id="373"
+            />
+            <h4>Fubo TV</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/youtube-tv.png"
+              class="service-icon"
+              id="youtube-tv-icon"
+              alt="YouTube TV Icon"
+              title="Stream on Youtube TV"
+              data-selected="false"
+              data-api-id="344"
+            />
+            <h4>Youtube TV</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/amazon-freevee.png"
+              class="service-icon"
+              id="amazon-freevee-icon"
+              alt="Amazon Freevee Icon"
+              title="Stream on Amazon Freevee"
+              data-selected="false"
+              data-api-id="365"
+            />
+            <h4>Amazon Freevee</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/roku-channel.png"
+              class="service-icon"
+              id="roku-icon"
+              alt="Roku Channel Icon"
+              title="Stream on Roku Channel"
+              data-selected="false"
+              data-api-id="452"
+            />
+            <h4>Roku Channel</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/google-play.png"
+              class="service-icon"
+              id="google-play-icon"
+              alt="Google Play Icon"
+              title="Rent/Buy on Google Play Movies & TV"
+              data-selected="false"
+              data-api-id="140"
+            />
+            <h4>Google Play Movies & TV</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/vudu.png"
+              class="service-icon"
+              id="vudu-icon"
+              alt="Vudu Icon"
+              title="Rent/Buy on Vudu"
+              data-selected="false"
+              data-api-id="307"
+            />
+            <h4>Vudu</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/amazon-video.png"
+              class="service-icon"
+              id="amazon-video-icon"
+              alt="Amazon Video Icon"
+              title="Rent/Buy on Amazon Video"
+              data-selected="false"
+              data-api-id="24"
+            />
+            <h4>Amazon Video</h4>
+          </div>
+          <div class="icon-container">
+            <img
+              src="./src/streaming-services/apple.png"
+              class="service-icon"
+              id="apple-icon"
+              alt="Apple Icon"
+              title="Rent/Buy on Apple"
+              data-selected="false"
+              data-api-id="349"
+            />
+            <h4>Apple</h4>
+          </div>
+        </div>
+      </div>
+      <div id="source-button-container">
+        <button id="source-back-button">
+          <img
+            id="source-back-button-image"
+            src="./src/buttons/back-button.png"
+          />
+        </button>
+        <button id="source-next-button" disabled>
+          <img
+            id="source-next-button-image"
+            src="./src/buttons/next-button.png"
+          />
+        </button>
       </div>
     </div>
-    <div id="find-movie-button-box">
-      <h4>Find Me Something to Watch</h4>
-      <img id="find-movie-button" src="./src/buttons/find-button.png"></img>
+    <div id="additional-options-preview">
+      <h2>Additional Options</h2>
+    </div>
+    <div id="additional-options-container">
+      <h2>Choose Additional Options</h2>
+      <div id="additional-options-icons">
+        <div id="ao-rating-section">
+          <h3>Rating</h3>
+          <div class="ao-rating-row">
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/g.png"
+                alt="Rated G"
+                data-selected="false"
+                data-api-id="G"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/pg.png"
+                alt="Rated PG"
+                data-selected="false"
+                data-api-id="PG"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/pg-13.png"
+                alt="Rated PG-13"
+                data-selected="false"
+                data-api-id="PG-13"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/r.png"
+                alt="Rated R"
+                data-selected="false"
+                data-api-id="R"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/nc-17.png"
+                alt="Rated NC-17"
+                data-selected="false"
+                data-api-id="NC-17"
+              />
+            </div>
+          </div>
+          <div class="ao-rating-row">
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/tv-y.png"
+                alt="Rated TV-Y"
+                data-selected="false"
+                data-api-id="TV-Y"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/tv-y7.png"
+                alt="Rated TV-Y7"
+                data-selected="false"
+                data-api-id="TV-Y7,TV-Y7-FV"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/tv-g.png"
+                alt="Rated TV-G"
+                data-selected="false"
+                data-api-id="TV-G"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/tv-pg.png"
+                alt="Rated TV-PG"
+                data-selected="false"
+                data-api-id="TV-PG"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/tv-14.png"
+                alt="Rated TV-14"
+                data-selected="false"
+                data-api-id="TV-14"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/tv-ma.png"
+                alt="Rated TV-MA"
+                data-selected="false"
+                data-api-id="TV-MA"
+              />
+            </div>
+          </div>
+          <div class="ao-rating-row">
+            <div id="ao-icon-container">
+              <img
+                id="any-rating-icon"
+                src="./src/additional-options/any.png"
+                alt="Any Rating"
+                data-selected="true"
+                data-api-id="all"
+              />
+            </div>
+          </div>
+        </div>
+        <div id="ao-runtime-section">
+          <h3>Runtime</h3>
+          <div class="ao-runtime-row">
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/under-thirty.png"
+                alt="Under 30 Minutes"
+                data-selected="false"
+                data-time="0,30"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/thirty-min-to-one-hour.png"
+                alt="30 Minutes to 1 Hour"
+                data-selected="false"
+                data-time="30,60"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/one-to-two-hours.png"
+                alt="1 to 2 Hours"
+                data-selected="false"
+                data-time="60,120"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/two-hour-plus.png"
+                alt="Over Two Hours"
+                data-selected="false"
+                data-time="120,999"
+              />
+            </div>
+            <div id="ao-icon-container">
+              <img
+                src="./src/additional-options/any.png"
+                id="any-runtime-icon"
+                alt="Any Runtime"
+                data-selected="true"
+                data-time="all"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="additional-options-button-container">
+        <button id="additional-options-back-button">
+          <img
+            id="additional-options-back-button-image"
+            src="./src/buttons/back-button.png"
+          />
+        </button>
+        <button id="additional-options-next-button">
+          <img
+            id="additional-options-next-button-image"
+            src="./src/buttons/find-sq-button.png"
+            data-selected="true"
+          />
+        </button>
+      </div>
+    </div>
+    <div id="results-container">
+      <h2>Results</h2>
+      <div id="result-display">
+        <div id="result-title">Title of Movie</div>
+        <div id="result-plot-overview">Plot of Movie</div>
+        <div id="result-poster-container">
+          <img
+            id="result-poster"
+            src="./src/temp-poster.png"
+            alt="Movie Poster"
+          />
+        </div>
+      </div>
+      <div id="results-button-container">
+        <button id="results-prev-button">
+          <img
+            id="results-prev-button-image"
+            src="./src/buttons/arrow-prev-button.png"
+          />
+        </button>
+        <button id="results-next-button">
+          <img
+            id="results-next-button-image"
+            src="./src/buttons/arrow-next-button.png"
+          />
+        </button>
+      </div>
+    </div>
     <script src="./movie-picker.js"></script>
   </body>
 </html>

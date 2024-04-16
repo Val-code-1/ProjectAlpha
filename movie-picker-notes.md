@@ -1,0 +1,1 @@
+- Figure out why "all" and "next" is acting wonky on Genre when returning via back
