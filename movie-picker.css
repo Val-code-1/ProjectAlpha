@@ -11,7 +11,7 @@ h4 {
   padding: 0px;
   max-width: 100%;
   text-align: center;
-  font-size: 2vw;
+  font-size: clamp(12px, 2vw, 16px);
   word-wrap: break-word;
   white-space: normal;
 }
@@ -316,24 +316,41 @@ h4 {
   align-items: center;
 }
 
-#result-title {
-  font-size: 6vw;
+#display-title {
+  font-size: clamp(24px, 10vw, 44px);
   color: white;
+  margin-bottom: 5px;
 }
 
-#result-plot-overview {
+#display-plot {
   font-size: 12dv;
   color: white;
 }
 
-#result-poster-container {
-  display: flex;
-  width: 60%;
+#display-poster-container {
+  min-width: 200px;
+  margin: 0 20px;
 }
 
-#result-poster {
+#display-poster {
   width: 100%;
   height: auto;
+}
+
+#display-plot {
+  font-size: 1em;
+  color: white;
+  max-width: 400px;
+  margin-right: 40px;
+}
+
+#display-type {
+  display: none;
+}
+
+#display-type-img {
+  width: 60px;
+  margin: 5px auto;
 }
 
 #results-button-container {
@@ -362,6 +379,55 @@ h4 {
   width: 80px !important;
   height: auto !important;
   opacity: 0.3 !important;
+}
+
+.display-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.display-column {
+  display: flex;
+  flex-direction: column;
+}
+
+#more-results-container {
+  /* display: none; */
+  display: flex;
+  flex-direction: column;
+}
+
+.more-results-page {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-bottom: 5px;
+}
+
+.more-results-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.more-results-box {
+  display: flex;
+  /* height: 10px; */
+  width: 19%;
+  align-items: center;
+  justify-content: center;
+  /* margin: 10px;
+  padding: 10px; */
+  border: 1px solid white;
+}
+
+#more-results-button-container {
+  /* all below is default. Confirm first! */
+  width: 100%;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .icon-container {

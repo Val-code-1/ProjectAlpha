@@ -811,34 +811,15 @@
     <div id="results-container">
       <h2>Results</h2>
       <div id="result-display">
-        <div class="display-row">
-          <div id="display-poster-container">
-            <img id="display-poster" src="" alt="Poster" />
-          </div>
-          <div class="display-column">
-            <div id="display-title"></div>
-            <div id="display-type"></div>
-            <img id="display-type-img" src="" alt="Media Type" />
-            <div id="display-plot"></div>
-            <div id="display-runtime"></div>
-            <div id="display-release-date"></div>
-            <div id="display-finale"></div>
-            <div id="display-genres"></div>
-          </div>
+        <div id="result-title">Title of Movie</div>
+        <div id="result-plot-overview">Plot of Movie</div>
+        <div id="result-poster-container">
+          <img
+            id="result-poster"
+            src="./src/temp-poster.png"
+            alt="Movie Poster"
+          />
         </div>
-        <div id="display-user-rating"></div>
-        <div id="display-critic-score"></div>
-        <div id="display-rating"></div>
-        <div id="display-language"></div>
-        <div id="display-similar-titles"></div>
-        <div id="display-trailer"></div>
-        <div id="display-trailer-thumbnail"></div>
-        <div id="display-source"></div>
-        <div id="display-source-type"></div>
-        <div id="display-source-link"></div>
-        <div id="display-source-price"></div>
-        <div id="display-source-seasons"></div>
-        <div id="display-source-episodes"></div>
       </div>
       <div id="results-button-container">
         <button id="results-prev-button">
@@ -857,6 +838,377 @@
     </div>
     <div id="more-results-container">
       <h3>Select Up To Five New Results to View</h3>
+      <!-- data-selected="false" -->
+      <!-- <div class="more-results-batch-container" id="page-one">
+        <div class="more-results-row" id="starting-results">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+      </div>
+      <div class="more-results-batch-container" id="page-two">
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+      </div>
+      <div class="more-results-batch-container" id="page-three">
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+      </div>
+      <div class="more-results-batch-container" id="page-four">
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+      </div>
+      <div class="more-results-batch-container" id="page-five">
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+      </div>
+      <div class="more-results-batch-container" id="page-six">
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+      </div>
+      <div class="more-results-batch-container" id="page-seven">
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+      </div>
+      <div class="more-results-batch-container" id="page-eight">
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+      </div>
+      <div class="more-results-batch-container" id="page-nine">
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+      </div>
+      <div class="more-results-batch-container" id="page-ten">
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+        <div class="more-results-row">
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+          <div class="more-results-box"></div>
+        </div>
+      </div> -->
     </div>
     <div id="more-results-button-container">
       <button id="more-results-button">

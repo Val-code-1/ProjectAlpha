@@ -6,6 +6,11 @@ let genreArray = []; // This will store the selected genres
 let sourceArray = []; // This will store the selected streaming services
 let ratingArray = []; // This will store the selected ratings
 let runtimeArray = []; // This will store the selected runtimes
+let resultsPageArray = []; // This will store the results in array chunks of 25
+let searchArray = []; // This will store the results to search for, and prevent re-calling for the same data
+let displayArray = []; // This will store the results to display on the page
+let storedDisplaySet = {}; // This will store the data of expanded result pulls
+let pageView = 1; // This will store the next current page to display
 
 // Converts the type images into selectable buttons
 document.querySelectorAll("#media-type-icons img").forEach((img) => {
@@ -13,7 +18,7 @@ document.querySelectorAll("#media-type-icons img").forEach((img) => {
 });
 
 // Converts the genre images into selectable buttons
-document.querySelectorAll("#genre-container img").forEach((img) => {
+document.querySelectorAll("#genre-icons img").forEach((img) => {
   img.addEventListener("click", toggleGenreSelection);
 });
 
@@ -268,7 +273,7 @@ document
     hideSourceSelection();
   });
 
-// Initiaties the search based on the selected options
+// Initiaties the search based on the selected options and calls on function to parse the results
 document
   .getElementById("additional-options-next-button-image")
   .addEventListener("click", () => {
@@ -280,7 +285,16 @@ document
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
+        constructResultsArray(json);
       });
+  });
+
+// Enables button logic for the back button (in Additional Options selection)
+document
+  .getElementById("additional-options-back-button-image")
+  .addEventListener("click", function () {
+    returnToSourceSelection();
+    hideAdditionalOptions();
   });
 
 // Condenses the Media Type section after the user has made their choice
@@ -294,6 +308,11 @@ function minimizeMediaTypeSelection() {
     img.style.width = "35px";
     img.style.height = "35px";
   });
+  document
+    .querySelectorAll("#media-type-icons .icon-container")
+    .forEach((container) => {
+      container.style.margin = "5px";
+    });
   document.getElementById("type-button-container").style.display = "none";
 }
 
@@ -301,6 +320,7 @@ function minimizeMediaTypeSelection() {
 function expandGenreSelection() {
   document.getElementById("genre-preview").style.display = "none";
   document.getElementById("genre-container").style.display = "flex";
+  document.getElementById("genre-next-button-image").style.opacity = 1;
 }
 
 // Returns the user to the Media Type section
@@ -311,9 +331,14 @@ function returnToMediaTypeSelection() {
       text.style.display = "block";
     });
   document.querySelectorAll("#media-type-icons img").forEach((img) => {
-    img.style.width = "100px";
-    img.style.height = "100px";
+    img.style.width = "";
+    img.style.height = "";
   });
+  document
+    .querySelectorAll("#media-type-icons .icon-container")
+    .forEach((container) => {
+      container.style.margin = "";
+    });
   document.getElementById("type-button-container").style.display = "flex";
 }
 
@@ -334,6 +359,11 @@ function minimizeGenreSelection() {
     img.style.width = "35px";
     img.style.height = "35px";
   });
+  document
+    .querySelectorAll("#genre-container .icon-container")
+    .forEach((container) => {
+      container.style.margin = "5px";
+    });
   document.getElementById("genre-button-container").style.display = "none";
 }
 
@@ -351,9 +381,14 @@ function returnToGenreSelection() {
       text.style.display = "block";
     });
   document.querySelectorAll("#genre-container img").forEach((img) => {
-    img.style.width = "100px";
-    img.style.height = "100px";
+    img.style.width = "";
+    img.style.height = "";
   });
+  document
+    .querySelectorAll("#genre-container .icon-container")
+    .forEach((container) => {
+      container.style.margin = "";
+    });
   document.getElementById("genre-button-container").style.display = "flex";
 }
 
@@ -374,6 +409,11 @@ function minimizeSourceSelection() {
     img.style.width = "35px";
     img.style.height = "35px";
   });
+  document
+    .querySelectorAll("#source-container .icon-container")
+    .forEach((container) => {
+      container.style.margin = "5px";
+    });
   document.getElementById("source-button-container").style.display = "none";
 }
 
@@ -392,9 +432,14 @@ function returnToSourceSelection() {
       text.style.display = "block";
     });
   document.querySelectorAll("#source-container img").forEach((img) => {
-    img.style.width = "100px";
-    img.style.height = "100px";
+    img.style.width = "";
+    img.style.height = "";
   });
+  document
+    .querySelectorAll("#source-container .icon-container")
+    .forEach((container) => {
+      container.style.margin = "";
+    });
   document.getElementById("source-button-container").style.display = "flex";
 }
 
@@ -403,4 +448,149 @@ function hideAdditionalOptions() {
   document.getElementById("additional-options-preview").style.display = "block";
   document.getElementById("additional-options-container").style.display =
     "none";
+}
+
+// It takes the desired values from the resutls and stores them in sub-arrays of 25 inside of the resultsPageArray
+function constructResultsArray(json) {
+  const results = json.titles;
+  const size = 25;
+
+  for (let i = 0; i < results.length; i += size) {
+    const chunk = results.slice(i, i + size).map((item) => ({
+      id: item.id,
+      title: item.title,
+      year: item.year,
+      type: item.type,
+    }));
+    resultsPageArray.push(chunk);
+  }
+  populateResultsBoxes();
+}
+
+// Populates the hidden results display with the results stored in the resultsPageArray
+function populateResultsBoxes() {
+  const resultsContainer = document.getElementById("more-results-container");
+
+  resultsPageArray.forEach((page, pageIndex) => {
+    let resultsPage = document.createElement("div");
+    resultsPage.id = `page-${pageIndex + 1}`;
+    resultsPage.className = "more-results-page";
+    resultsContainer.appendChild(resultsPage);
+
+    let populatedRows = [];
+    for (let i = 0; i < page.length; i += 5) {
+      let fiveResults = page.slice(i, i + 5);
+      populatedRows.push(fiveResults);
+    }
+
+    populatedRows.forEach((row, rowIndex) => {
+      let resultsRow = document.createElement("div");
+      resultsRow.className = "more-results-row";
+      resultsPage.appendChild(resultsRow);
+
+      row.forEach((item) => {
+        let resultsBox = document.createElement("div");
+        resultsBox.className = "more-results-box";
+        resultsBox.innerHTML = `<h5>${item.title} (${item.year})</h5>
+                               <h6>[${item.type}]</h6>`;
+        resultsBox.dataset.id = item.id;
+        resultsRow.appendChild(resultsBox);
+
+        if (pageIndex === 0 && rowIndex === 0) {
+          searchArray.push(item.id);
+        }
+      });
+    });
+    pageIndex = pageIndex++;
+  });
+
+  pullDisplayData();
+}
+
+function pullDisplayData() {
+  let fetchPromises = searchArray.map((result) => {
+    if (!storedDisplaySet[result]) {
+      let url = `https://api.watchmode.com/v1/title/${result}/details/?apiKey=${key}&append_to_response=sources`;
+
+      return fetch(url, { method: "Get" })
+        .then((res) => res.json())
+        .then((json) => {
+          storedDisplaySet[result] = json;
+          displayArray.push(result);
+        });
+    }
+  });
+
+  Promise.all(fetchPromises).then(() => inflateResultsDisplay());
+}
+
+function inflateResultsDisplay() {
+  document.getElementById("results-container").style.display = "flex";
+  let displayID = displayArray[0];
+  let data = storedDisplaySet[displayID];
+
+  let keys = {
+    title: "display-title",
+    poster: "display-poster",
+    plot_overview: "display-plot",
+    type: "display-type",
+    runtime_minutes: "display-runtime",
+    year: "display-release-date",
+    end_year: "display-finale",
+    genre_names: "display-genres",
+    user_rating: "display-user-rating",
+    critic_score: "display-critic-score",
+    us_rating: "display-rating",
+    original_language: "display-language",
+    similar_titles: "display-similar-titles",
+    trailer: "display-trailer",
+    trailer_thumbnail: "display-trailer-thumbnail",
+  };
+
+  Object.entries(keys).forEach(([key, id]) => {
+    if (data.hasOwnProperty(key)) {
+      let element = document.getElementById(
+        id + (key === "poster" ? "-container" : "")
+      );
+      if (key === "poster") {
+        let img = document.getElementById(id);
+        img.src = data[key];
+      } else {
+        element.textContent = data[key];
+      }
+    }
+  });
+
+  if (data.hasOwnProperty("sources")) {
+    data.sources.forEach((source) => {
+      document.getElementById(`display-source`).textContent = source.name;
+      document.getElementById(`display-source-type`).textContent = source.type;
+      document.getElementById(`display-source-link`).textContent =
+        source.web_url;
+      document.getElementById(`display-source-price`).textContent =
+        source.price;
+      document.getElementById(`display-source-seasons`).textContent =
+        source.seasons;
+      document.getElementById(`display-source-episodes`).textContent =
+        source.episodes;
+    });
+  }
+  realignResultsDisplay();
+}
+
+function realignResultsDisplay() {
+  let mediaType = document.getElementById("display-type").textContent;
+  if (mediaType === ("movie" || "tv_special" || "short_film")) {
+    document.getElementById("display-finale").style.display = "none";
+    document.getElementById("display-source-episodes").style.display = "none";
+    document.getElementById("display-source-seasons").style.display = "none";
+    document.getElementById("display-type-img").src =
+      "./src/additional-options/movie.png";
+  } else {
+    document.getElementById("display-finale").style.display = "block";
+    document.getElementById("display-source-episodes").style.display = "block";
+    document.getElementById("display-source-seasons").style.display = "block";
+    document.getElementById("display-type-img").src =
+      "./src/additional-options/series.png";
+  }
 }
