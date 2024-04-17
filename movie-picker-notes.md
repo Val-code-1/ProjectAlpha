@@ -1,1 +1,3 @@
-- Figure out why "all" and "next" is acting wonky on Genre when returning via back
+- figure out why "next" button is working in type and source
+- delete/hide the additional options row and skip over it
+  - also delete/hide the preview for it
