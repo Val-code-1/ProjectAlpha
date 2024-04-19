@@ -1,5 +1,5 @@
 // This is our unique key for the API. Documentation found at https://api.watchmode.com/docs/#title
-const key = "5fv18iHmaUTf60qgnI787JkHHyYaRDCxcvHhw8T3";
+const key = "vraRSIW4EMLXPqzKeL67PDKheqUSl0wIlx2uzGDa";
 
 // The search button which will fire the event listener and the div all results will be appended to
 let searchButton = document.getElementById("searchFire");
