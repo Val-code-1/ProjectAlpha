@@ -1,0 +1,19 @@
+body {
+  background-color: #2d2d2d;
+  margin: 0;
+  padding: 0;
+  color: lightgrey;
+  text-align: center;
+}
+#searchFire {
+  background: transparent;
+  border: none;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+#search-button-image {
+  width: 80px;
+  height: auto;
+}

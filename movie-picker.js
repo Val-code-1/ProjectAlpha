@@ -1,5 +1,5 @@
 // This is our unique key for the API. Documentation found at https://api.watchmode.com/docs/#title
-const key = "5fv18iHmaUTf60qgnI787JkHHyYaRDCxcvHhw8T3";
+const key = "vraRSIW4EMLXPqzKeL67PDKheqUSl0wIlx2uzGDa";
 
 let typeArray = []; // This will store the selected media types
 let genreArray = []; // This will store the selected genres
