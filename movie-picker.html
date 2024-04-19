@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find Me Something to Watch</title>
+    <link rel="icon" href="./src/icon.ico" />
     <link rel="stylesheet" href="./movie-picker.css" />
   </head>
   <body>
@@ -40,10 +41,11 @@
         </div>
       </div>
       <div id="type-button-container">
-        <button id="type-next-button" disabled>
+        <button id="type-next-button">
           <img
             id="type-next-button-image"
             src="./src/buttons/next-button.png"
+            disabled="true"
           />
         </button>
       </div>
@@ -627,220 +629,52 @@
             src="./src/buttons/back-button.png"
           />
         </button>
-        <button id="source-next-button" disabled>
+        <button id="source-next-button">
           <img
             id="source-next-button-image"
-            src="./src/buttons/next-button.png"
-          />
-        </button>
-      </div>
-    </div>
-    <div id="additional-options-preview">
-      <h2>Additional Options</h2>
-    </div>
-    <div id="additional-options-container">
-      <h2>Choose Additional Options</h2>
-      <div id="additional-options-icons">
-        <div id="ao-rating-section">
-          <h3>Rating</h3>
-          <div class="ao-rating-row">
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/g.png"
-                alt="Rated G"
-                data-selected="false"
-                data-api-id="G"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/pg.png"
-                alt="Rated PG"
-                data-selected="false"
-                data-api-id="PG"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/pg-13.png"
-                alt="Rated PG-13"
-                data-selected="false"
-                data-api-id="PG-13"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/r.png"
-                alt="Rated R"
-                data-selected="false"
-                data-api-id="R"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/nc-17.png"
-                alt="Rated NC-17"
-                data-selected="false"
-                data-api-id="NC-17"
-              />
-            </div>
-          </div>
-          <div class="ao-rating-row">
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/tv-y.png"
-                alt="Rated TV-Y"
-                data-selected="false"
-                data-api-id="TV-Y"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/tv-y7.png"
-                alt="Rated TV-Y7"
-                data-selected="false"
-                data-api-id="TV-Y7,TV-Y7-FV"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/tv-g.png"
-                alt="Rated TV-G"
-                data-selected="false"
-                data-api-id="TV-G"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/tv-pg.png"
-                alt="Rated TV-PG"
-                data-selected="false"
-                data-api-id="TV-PG"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/tv-14.png"
-                alt="Rated TV-14"
-                data-selected="false"
-                data-api-id="TV-14"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/tv-ma.png"
-                alt="Rated TV-MA"
-                data-selected="false"
-                data-api-id="TV-MA"
-              />
-            </div>
-          </div>
-          <div class="ao-rating-row">
-            <div id="ao-icon-container">
-              <img
-                id="any-rating-icon"
-                src="./src/additional-options/any.png"
-                alt="Any Rating"
-                data-selected="true"
-                data-api-id="all"
-              />
-            </div>
-          </div>
-        </div>
-        <div id="ao-runtime-section">
-          <h3>Runtime</h3>
-          <div class="ao-runtime-row">
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/under-thirty.png"
-                alt="Under 30 Minutes"
-                data-selected="false"
-                data-time="0,30"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/thirty-min-to-one-hour.png"
-                alt="30 Minutes to 1 Hour"
-                data-selected="false"
-                data-time="30,60"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/one-to-two-hours.png"
-                alt="1 to 2 Hours"
-                data-selected="false"
-                data-time="60,120"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/two-hour-plus.png"
-                alt="Over Two Hours"
-                data-selected="false"
-                data-time="120,999"
-              />
-            </div>
-            <div id="ao-icon-container">
-              <img
-                src="./src/additional-options/any.png"
-                id="any-runtime-icon"
-                alt="Any Runtime"
-                data-selected="true"
-                data-time="all"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="additional-options-button-container">
-        <button id="additional-options-back-button">
-          <img
-            id="additional-options-back-button-image"
-            src="./src/buttons/back-button.png"
-          />
-        </button>
-        <button id="additional-options-next-button">
-          <img
-            id="additional-options-next-button-image"
             src="./src/buttons/find-sq-button.png"
-            data-selected="true"
           />
         </button>
       </div>
     </div>
     <div id="results-container">
-      <h2>Results</h2>
       <div id="result-display">
-        <div class="display-row">
-          <div id="display-poster-container">
-            <img id="display-poster" src="" alt="Poster" />
+        <div id="display-title-container">
+          <div id="display-title"></div>
+        </div>
+        <div id="display-details-container">
+          <div id="display-quick-info">
+            <div id="display-poster-container">
+              <img id="display-poster" src="" alt="Poster" />
+            </div>
+            <div id="display-year-container">
+              <div id="display-release-date"></div>
+              <div id="display-hyphen">-</div>
+              <div id="display-finale"></div>
+            </div>
+            <div id="display-source-season-count"></div>
+            <div id="display-source-episode-count"></div>
+            <div id="display-genre-container"></div>
+            <div id="display-source-info"></div>
           </div>
-          <div class="display-column">
-            <div id="display-title"></div>
-            <div id="display-type"></div>
-            <img id="display-type-img" src="" alt="Media Type" />
+          <div id="display-description-container">
+            <div id="display-content-info">
+              <div id="display-type"></div>
+              <div id="display-runtime"></div>
+              <div id="display-rating"></div>
+            </div>
             <div id="display-plot"></div>
-            <div id="display-runtime"></div>
-            <div id="display-release-date"></div>
-            <div id="display-finale"></div>
-            <div id="display-genres"></div>
+            <div id="display-rating-row">
+              <div id="display-user-rating"></div>
+              <div id="display-critic-score"></div>
+            </div>
+            <div id="display-trailer-container">
+              <div id="display-trailer">
+                <img id="display-trailer-thumbnail" src="" alt="" />
+              </div>
+            </div>
           </div>
         </div>
-        <div id="display-user-rating"></div>
-        <div id="display-critic-score"></div>
-        <div id="display-rating"></div>
-        <div id="display-language"></div>
-        <div id="display-similar-titles"></div>
-        <div id="display-trailer"></div>
-        <div id="display-trailer-thumbnail"></div>
-        <div id="display-source"></div>
-        <div id="display-source-type"></div>
-        <div id="display-source-link"></div>
-        <div id="display-source-price"></div>
-        <div id="display-source-seasons"></div>
-        <div id="display-source-episodes"></div>
       </div>
       <div id="results-button-container">
         <button id="results-prev-button">
@@ -859,15 +693,16 @@
     </div>
     <div id="more-results-container">
       <h3>Select Up To Five New Results to View</h3>
-    </div>
-    <div id="more-results-button-container">
-      <button id="more-results-button">
-        <img
-          id="more-results-button-image"
-          src="./src/additional-options/more-results.png"
-          alt="More Results Button"
-        />
-      </button>
+      <div id="more-results-display"></div>
+      <div id="more-results-button-container">
+        <button id="more-results-button">
+          <img
+            id="more-results-button-image"
+            src="./src/additional-options/more-results.png"
+            alt="More Results Button"
+          />
+        </button>
+      </div>
     </div>
     <script src="./movie-picker.js"></script>
   </body>
