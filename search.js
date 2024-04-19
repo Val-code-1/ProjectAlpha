@@ -1,5 +1,5 @@
 // This is our unique key for the API. Documentation found at https://api.watchmode.com/docs/#title
-const key = "5fv18iHmaUTf60qgnI787JkHHyYaRDCxcvHhw8T3";
+const key = "vraRSIW4EMLXPqzKeL67PDKheqUSl0wIlx2uzGDa";
 
 // The search button which will fire the event listener and the div all results will be appended to
 let searchButton = document.getElementById("searchFire");
@@ -17,12 +17,70 @@ searchButton.addEventListener("click", () => {
   // This API is user friendly to help with misspelled and incomplete words
   let url = `https://api.watchmode.com/v1/autocomplete-search/?apiKey=${key}&search_value=${searchEntry}&search_type=2`;
 
+  // Switch case to change names to images and add that image location to element src
+  function streamNamesToIcons(name, element) {
+    switch (name) {
+      case "Amazon":
+        element.src = "./src/streaming-services/amazon-video.png";
+        break;
+      case "Netflix":
+        element.src = "./src/streaming-services/netflix.png";
+        break;
+      case "AppleTV":
+        element.src = "./src/streaming-services/apple.png";
+        break;
+      case "VUDU":
+        element.src = "./src/streaming-services/vudu.png";
+        break;
+      case "Disney+":
+        element.src = "./src/streaming-services/disney-plus.png";
+        break;
+      case "Google Play":
+        element.src = "./src/streaming-services/google-play.png";
+        break;
+      case "MAX":
+        element.src = "./src/streaming-services/hbo-max.png";
+        break;
+      case "Hulu":
+        element.src = "./src/streaming-services/hulu.png";
+        break;
+      case "Peacock":
+        element.src = "./src/streaming-services/peacock.png";
+        break;
+      case "YouTube":
+        element.src = "./src/streaming-services/youtube-tv.png";
+        break;
+      case "fuboTV":
+        element.src = "./src/streaming-services/fubo-tv.png";
+        break;
+      case "Paramount Plus":
+        element.src = "./src/streaming-services/paramount-plus.png";
+        break;
+      case "Amazon Freevee":
+        element.src = "./src/streaming-services/amazon-freevee.png";
+        break;
+      case "Prime Video":
+        element.src = "./src/streaming-services/prime-video.png";
+        break;
+      default:
+        element.src = "./src/streaming-services/error-case.png";
+        return;
+    }
+  }
+
   fetch(url, { method: "Get" })
     .then((res) => res.json())
     .then((json) => {
       console.log(json);
 
       // Could have gone the length of the API return but we are limited to 1000 calls a month so keep this for loop at 5 so we can present
+      if (json.results.length === 0) {
+        console.log("No titles found");
+        let resultName = document.createElement("div");
+        resultName.className = "resultName";
+        resultName.innerHTML = "No titles found";
+        results.appendChild(resultName);
+      }
       for (let i = 0; i < 5; i++) {
         let resultName = document.createElement("div");
         let resultImg = document.createElement("img");
@@ -86,16 +144,30 @@ searchButton.addEventListener("click", () => {
                 .then((streams) => {
                   console.log(streams);
 
+                  // No duplicates returned
+                  let unique = [];
+
                   for (let i = 0; i < streams.length; i++) {
-                    let streamSource = document.createElement("div");
+                    if (!unique.includes(streams[i].name)) {
+                      unique.push(streams[i].name);
+                    } else if (unique.length === 0) {
+                      console.log("No movies found");
+                    }
+                    console.log(unique);
+                  }
+
+                  for (let i = 0; i < unique.length; i++) {
+                    let streamSource = document.createElement("img");
                     streamSource.className = "streamSource";
-                    streamSource.innerHTML = `${streams[i].name}`;
+                    streamSource.title = `${unique[i]}`;
+                    // streamSource.innerHTML = `${unique[i]}`;
+                    streamNamesToIcons(unique[i], streamSource);
                     results.appendChild(streamSource);
 
-                    let streamType = document.createElement("div");
-                    streamType.className = "streamType";
-                    streamType.innerHTML = `${streams[i].type}`;
-                    results.appendChild(streamType);
+                    // let streamType = document.createElement("div");
+                    // streamType.className = "streamType";
+                    // streamType.innerHTML = `${unique[i].type}`;
+                    // results.appendChild(streamType);
                   }
                 });
             });
