@@ -63,7 +63,7 @@ searchButton.addEventListener("click", () => {
         element.src = "./src/streaming-services/prime-video.png";
         break;
       default:
-        element.src = "./src/streaming-services/sling-tv.png";
+        element.src = "./src/streaming-services/error-case.png";
         return;
     }
   }
@@ -74,6 +74,13 @@ searchButton.addEventListener("click", () => {
       console.log(json);
 
       // Could have gone the length of the API return but we are limited to 1000 calls a month so keep this for loop at 5 so we can present
+      if (json.results.length === 0) {
+        console.log("No titles found");
+        let resultName = document.createElement("div");
+        resultName.className = "resultName";
+        resultName.innerHTML = "No titles found";
+        results.appendChild(resultName);
+      }
       for (let i = 0; i < 5; i++) {
         let resultName = document.createElement("div");
         let resultImg = document.createElement("img");
@@ -143,6 +150,8 @@ searchButton.addEventListener("click", () => {
                   for (let i = 0; i < streams.length; i++) {
                     if (!unique.includes(streams[i].name)) {
                       unique.push(streams[i].name);
+                    } else if (unique.length === 0) {
+                      console.log("No movies found");
                     }
                     console.log(unique);
                   }
